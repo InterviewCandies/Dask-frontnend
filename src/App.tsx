@@ -49,7 +49,7 @@ function App() {
               <Router basename={process.env.PUBLIC_URL}>
                 <Switch>
                   <Route path="/" component={Login} exact></Route>
-                  <Route path="/register" exact component={Register}></Route>
+                  <Route path="/register" component={Register}></Route>
                   <PrivateRoute
                     path="/all"
                     component={AllBoards}
