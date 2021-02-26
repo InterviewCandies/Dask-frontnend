@@ -34,6 +34,8 @@ export default function useGetToken() {
     }
     updateUser(user.data);
     localStorage.setItem(AUTH_TOKEN, result.data);
+    instance.defaults.headers.common["Authorization"] = "Bearer " + result.data;
+
     history.push("/all");
   };
 }
