@@ -6,7 +6,6 @@ import { Dispatch } from "redux";
 
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem(AUTH_TOKEN);
-
 export const createBoard = async (data: Board): Promise<Message> => {
   try {
     const result = await axios.post("/boards/create", data);
