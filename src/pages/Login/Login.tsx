@@ -8,7 +8,7 @@ import useGetToken from "../../hooks/useGetToken";
 import logo from "../../assets/img/logo.png";
 import { useLoading } from "../../provider/LoaderProvider";
 import { AUTH_TOKEN } from "../../types";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 function Login() {
   const { handleSubmit, register } = useForm();
   const getToken = useGetToken();
@@ -63,9 +63,9 @@ function Login() {
         <hr className="border-solid border-gray-300 my-3"></hr>
         <h1 className="text-center text-gray-500 text-sm">
           Don't have account ?{" "}
-          <a href="/register" className="text-blue-500 font-semibold">
+          <Link to="/register" className="text-blue-500 font-semibold">
             Register now
-          </a>
+          </Link>
         </h1>
       </div>
     </div>
