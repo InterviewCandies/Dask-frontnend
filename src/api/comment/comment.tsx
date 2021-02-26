@@ -2,9 +2,6 @@ import { AUTH_TOKEN, CommentType, Message } from "../../types";
 import axios from "../../utils/axios";
 import { errorHandler } from "../../utils/errorHandler";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem(AUTH_TOKEN);
-
 export const createComment = async (comment: CommentType): Promise<Message> => {
   try {
     const result = await axios.post("/comments/create", comment);

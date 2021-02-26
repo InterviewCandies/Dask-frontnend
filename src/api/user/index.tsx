@@ -4,8 +4,6 @@ import { Message } from "../../types";
 import { errorHandler } from "../../utils/errorHandler";
 import { Dispatch } from "redux";
 import { updateUsers } from "../../actions/user";
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem(AUTH_TOKEN);
 
 export const createUser = async (data: User): Promise<Message> => {
   try {

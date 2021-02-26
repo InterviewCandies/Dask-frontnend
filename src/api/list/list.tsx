@@ -3,9 +3,6 @@ import { AUTH_TOKEN, List, Message } from "../../types";
 import axios from "../../utils/axios";
 import { errorHandler } from "../../utils/errorHandler";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem(AUTH_TOKEN);
-
 export const createList = async (data: List): Promise<Message> => {
   try {
     const result = await axios.post("/lists/create", data);
