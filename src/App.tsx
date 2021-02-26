@@ -3,7 +3,7 @@ import AllBoards from "./pages/AllBoards/AllBoards";
 import { Provider, useSelector } from "react-redux";
 import { ErrorBoundary } from "react-error-boundary";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -46,7 +46,7 @@ function App() {
         <Provider store={store}>
           <SnackbarProvider maxSnack={1}>
             <DialogProvider>
-              <Router>
+              <Router basename={process.env.PUBLIC_URL}>
                 <Switch>
                   <Route path="/" component={Login} exact></Route>
                   <Route path="/register" exact component={Register}></Route>

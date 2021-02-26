@@ -83,7 +83,7 @@ const filterUser = (users: User[], searchKey: string) => {
 };
 
 function Assignment({ task }: { task: Task }) {
-  const url = window.location.pathname;
+  const url = window.location.hash;
   const id: string = url.substring(url.lastIndexOf("/") + 1);
   const boards = useSelector((state: StateTypes) => state.boards);
   const board = boards?.find((board) => board._id === id);

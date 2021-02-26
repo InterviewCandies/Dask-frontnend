@@ -11,7 +11,7 @@ function useUpdateCurrentTask() {
   const { enqueueSnackbar } = useSnackbar();
   const dispatch = useDispatch();
   const { saveChangesToBoard } = useUpdateBoard();
-  const url = window.location.pathname;
+  const url = window.location.hash;
   const id: string = url.substring(url.lastIndexOf("/") + 1);
   const boards = useSelector((state: StateTypes) => state.boards);
   const board = boards?.find((board) => board._id === id);
