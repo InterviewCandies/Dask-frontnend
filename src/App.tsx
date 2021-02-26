@@ -48,8 +48,8 @@ function App() {
             <DialogProvider>
               <Router basename={process.env.PUBLIC_URL}>
                 <Switch>
-                  <Route path="/register" component={Register}></Route>
                   <Route path="/" component={Login} exact></Route>
+                  <Route path="/register" component={Register}></Route>
                   <PrivateRoute
                     path="/all"
                     component={AllBoards}
