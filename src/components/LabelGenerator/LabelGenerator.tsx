@@ -82,7 +82,6 @@ function LabelGenerator({ currentLabels }: { currentLabels: Label[] }) {
               setColors((prevState) => {
                 prevState = [...initialColorsState];
                 prevState[i] = true;
-                console.log(prevState);
                 return prevState;
               })
             }

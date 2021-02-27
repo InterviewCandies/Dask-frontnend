@@ -6,7 +6,7 @@ import { Dispatch } from "redux";
 
 export const createBoard = async (data: Board): Promise<Message> => {
   try {
-    const result = await axios.post("/boards/create", data);
+    const result = await axios.post("/boards/create", data, { headers: {} });
     return { data: result.data };
   } catch (error) {
     return errorHandler(error);

@@ -19,12 +19,15 @@ import Board from "./pages/Board/Board";
 import DialogProvider from "./provider/DialogProvider";
 import LoadingProvider from "./provider/LoaderProvider";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import instance from "./utils/axios";
+import axios from "./utils/axios";
 
 const PrivateRoute: React.FC<RouteProps> = ({
   component: Component,
   ...rest
 }) => {
   const token = localStorage.getItem(AUTH_TOKEN);
+
   return (
     <Route
       {...rest}
@@ -40,6 +43,15 @@ const PrivateRoute: React.FC<RouteProps> = ({
   );
 };
 function App() {
+  (function () {
+    let token = "Bearer " + localStorage.getItem(AUTH_TOKEN);
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = token;
+    } else {
+      axios.defaults.headers.common["Authorization"] = "";
+      delete axios.defaults.headers.common["Authorization"];
+    }
+  })();
   return (
     <ErrorBoundary FallbackComponent={ErrorPage}>
       <LoadingProvider>

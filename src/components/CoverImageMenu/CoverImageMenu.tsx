@@ -21,7 +21,6 @@ function CoverImageMenu() {
     <div className="bg-white p-3 space-y-3">
       <h1 className="font-semibold">Choose a cover </h1>
       <div className="grid grid-cols-3 gap-2">
-        {console.log(TASK_COVER)}
         {Object.keys(TASK_COVER).map((cover) => (
           <CustomImage
             className={`w-20 h-10 ${

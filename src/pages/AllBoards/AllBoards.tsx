@@ -9,8 +9,9 @@ import Layout from "../../components/common/Layout/Layout";
 import NewBoard from "../../container/NewBoard/NewBoard";
 import { useDialog } from "../../provider/DialogProvider";
 import { useLoading } from "../../provider/LoaderProvider";
-import { StateTypes, User } from "../../types";
+import { AUTH_TOKEN, StateTypes, User } from "../../types";
 import Empty from "../../assets/img/empty.png";
+import instance from "../../utils/axios";
 
 const DEFAULT_COLOR = "#001eb3";
 

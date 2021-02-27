@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { authenticateUser } from "../actions/user";
 import { createUser } from "../api/user";
 import { AUTH_TOKEN, CURRENT_USER, Message, User } from "../types";
-import instance from "../utils/axios";
+import axios from "../utils/axios";
 export default function useGetToken() {
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
@@ -34,8 +34,10 @@ export default function useGetToken() {
     }
     updateUser(user.data);
     localStorage.setItem(AUTH_TOKEN, result.data);
-    instance.defaults.headers.common["Authorization"] = "Bearer " + result.data;
-
+    axios.interceptors.request.use((config) => {
+      config.headers.common["Authorization"] = "Bearer " + result.data;
+      return config;
+    });
     history.push("/all");
   };
 }

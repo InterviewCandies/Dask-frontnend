@@ -236,7 +236,6 @@ function BoardDetails() {
   const id: string = url.substring(url.lastIndexOf("/") + 1);
   const boards = useSelector((state: StateTypes) => state.boards);
   const board = boards?.find((board) => board._id === id);
-  console.log(id, board, boards);
   if (!board) {
     history.push("/404");
     return null;
