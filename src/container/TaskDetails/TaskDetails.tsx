@@ -288,7 +288,7 @@ function TaskDetails({ taskId }: { taskId: string }) {
   };
 
   return (
-    <div className="p-5 space-y-4 w-auto relative">
+    <div className="p-5 w-auto">
       <button
         className=" px-3 absolute focus:outline-none top-2.5 right-2.5  py-1 rounded-lg bg-blue-500 text-white"
         onClick={closeDialog}
@@ -302,7 +302,7 @@ function TaskDetails({ taskId }: { taskId: string }) {
           className="w-full h-28 rounded"
         ></CustomImage>
       )}
-      <div>
+      <div className="py-5">
         <div className="grid md:grid-cols-4 grid-cols-1 space-y-4 md:space-y-0">
           <div className="space-y-8 mt-4 col-span-3">
             {editTitle ? (
