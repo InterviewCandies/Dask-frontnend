@@ -7,6 +7,7 @@ import {
 import GithubIcon from "../../../assets/img/github.svg";
 import GoogleIcon from "../../../assets/img/google.svg";
 import useGetToken from "../../../hooks/useGetToken";
+import { useLoading } from "../../../provider/LoaderProvider";
 import { Message } from "../../../types";
 
 const Button = (props: {
@@ -28,15 +29,20 @@ const Button = (props: {
 
 function LoginButtonGroup() {
   const getToken = useGetToken();
+  const { showLoader, hideLoader } = useLoading();
 
   const continueWithGoogle = async () => {
+    showLoader();
     const result = await signInWithGoogle();
     await getToken(result);
+    hideLoader();
   };
 
   const continueWithGithub = async () => {
+    showLoader();
     const result = await signInWithGithub();
     await getToken(result);
+    hideLoader();
   };
 
   return (
